@@ -10,3 +10,15 @@ customise delivery options.
 
 '''
 
+def menu():
+    print('Welcome to Baco Tell')
+    print('How can we help you today?')
+    print('Tacos')
+    print('Burritos')
+    print('Snacks & Sides')
+    print('Desserts')
+    print('Drinks')
+    menu_input = input('>')
+
+
+menu()

@@ -17,14 +17,28 @@ Taco_selection = [
     ['Double Crispy Chicken Taco',10.50]
     ]
 
+'''
+Takes user input and checks if it is an integer
+'''
+def int_input_check(n):
+
+    while True:
+        try:
+            num = int(input(n))#checks if input is integer
+            return num # puts it back into variable
+        
+        except ValueError:
+            print('Please enter only valid numbers')
+
 
 '''
 Prints the taco menu
 '''
 def taco_menu():
-    for (i,taco) in enumerate(Taco_selection, start = 1):
-        print(f'{i}. {taco[0]} - ${taco[1]}')
+    for (i,taco) in enumerate(Taco_selection, start = 1): #allows index to be printed, starts at 1 instead of 0
+        print(f'{i}. {taco[0]} - ${taco[1]}') # (Index). (Item) - $(Price)
     user_selection(Taco_selection)
+
 
 """
 Allows the user to enter a number
@@ -35,7 +49,7 @@ modified.
 def user_selection(x):
     print('Enter the number of the item you would like to select\n'
     'to go back, enter B')
-    menu_input = int(input('>'))
+    menu_input = int_input_check(" select one\n>")
 
 
     """
@@ -43,11 +57,12 @@ def user_selection(x):
     print the list item corresponding to the menu input?
     """
 
-
-    if 1 <= user_selection <= len(x):
-        print(f'{x[menu_input]}')
-    else:
-        print('NOOOO')
+    while True:
+        if 1 <= menu_input <= len(x): # checks if number is in range with the list
+            print(f'{x[menu_input]}')
+            break
+        else:
+            print('Please enter a number in range with available items.')
 
 
 

@@ -12,7 +12,10 @@ customise delivery options.
 
 
 #Taco list
-Taco_selection = ['Double Taco Supreme'[9.50], 'Double Crispy Chicken Taco'[10.50]]
+Taco_selection = [
+    ['Double Taco Supreme',9.50],
+    ['Double Crispy Chicken Taco',10.50]
+    ]
 
 
 '''
@@ -20,7 +23,7 @@ Prints the taco menu and allows users to add tacos to the cart (MAKE)
 '''
 def taco_menu():
     for taco in Taco_selection:
-        print(f'{taco[0]} - {taco[1]}')
+        print(f'{taco[0]} - ${taco[1]}')
 
 
 def menu():

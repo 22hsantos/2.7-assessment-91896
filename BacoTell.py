@@ -10,6 +10,12 @@ customise delivery options.
 
 '''
 
+#user's basket
+basket = []
+
+def add_to_basket(item):
+    basket.append(item)
+    print(basket)
 
 #Taco list
 Taco_selection = [
@@ -46,10 +52,10 @@ Allows the user to enter a number
 and select an item to be added into the basket and/or 
 modified.
 """
-def user_selection(x):
+def user_selection(menu):
     print('Enter the number of the item you would like to select\n'
     'to go back, enter B')
-    menu_input = int_input_check(" select one\n>")
+    menu_item = int_input_check(" select one\n>")
 
 
     """
@@ -58,11 +64,13 @@ def user_selection(x):
     """
 
     while True:
-        if 1 <= menu_input <= len(x): # checks if number is in range with the list
-            print(f'{x[menu_input]}')
+        if 1 <= menu_item <= len(menu): # checks if number is in range with the list
+            print(f'{menu[menu_item]}')
             break
         else:
             print('Please enter a number in range with available items.')
+
+    add_to_basket(menu[menu_item])
 
 
 

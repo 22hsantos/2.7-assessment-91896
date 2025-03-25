@@ -13,9 +13,23 @@ customise delivery options.
 #user's basket
 basket = []
 
+def return_menu():
+    input('Press any key to return to the main menu.')
+    menu()
+'''
+This fn will ask the user if they would like to put the selected
+item into their basket, if yes, the item will be appended. If no,
+They will be taken back into the main menu.
+'''
 def add_to_basket(item):
-    basket.append(item)
-    print(basket)
+    print(f'Select {item}? (y/n)')
+    confirm_selection = input('>').strip().lower()
+
+    if confirm_selection == 'y':
+        basket.append(item)
+        
+    if confirm_selection == 'n':
+        print('Item not added.')
 
 #Taco list
 Taco_selection = [
@@ -65,7 +79,6 @@ def user_selection(menu):
 
     while True:
         if 1 <= menu_item <= len(menu): # checks if number is in range with the list
-            print(f'{menu[menu_item]}')
             break
         else:
             print('Please enter a number in range with available items.')

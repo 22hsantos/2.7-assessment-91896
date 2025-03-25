@@ -19,11 +19,39 @@ Taco_selection = [
 
 
 '''
-Prints the taco menu and allows users to add tacos to the cart (MAKE)
+Prints the taco menu
 '''
 def taco_menu():
     for (i,taco) in enumerate(Taco_selection, start = 1):
         print(f'{i}. {taco[0]} - ${taco[1]}')
+    user_selection(Taco_selection)
+
+"""
+Allows the user to enter a number
+(ranging from the number of items in the menu list)
+and select an item to be added into the basket and/or 
+modified.
+"""
+def user_selection(x):
+    print('Enter the number of the item you would like to select\n'
+    'to go back, enter B')
+    menu_input = int(input('>'))
+
+
+    """
+    if user_selection is more or equal to 1 AND less or equal to the max,
+    print the list item corresponding to the menu input?
+    """
+
+
+    if 1 <= user_selection <= len(x):
+        print(f'{x[menu_input]}')
+    else:
+        print('NOOOO')
+
+
+
+    
 
 
 def menu():

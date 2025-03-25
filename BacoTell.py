@@ -16,6 +16,8 @@ basket = []
 def return_menu():
     input('Press any key to return to the main menu.')
     menu()
+
+
 '''
 This fn will ask the user if they would like to put the selected
 item into their basket, if yes, the item will be appended. If no,
@@ -27,9 +29,12 @@ def add_to_basket(item):
 
     if confirm_selection == 'y':
         basket.append(item)
+        print(f'Basket Updated: {basket}')#delete later
+        return_menu()
         
     if confirm_selection == 'n':
         print('Item not added.')
+        return_menu()
 
 #Taco list
 Taco_selection = [
@@ -69,7 +74,7 @@ modified.
 def user_selection(menu):
     print('Enter the number of the item you would like to select\n'
     'to go back, enter B')
-    menu_item = int_input_check(" select one\n>")
+    menu_item = int_input_check(" select one\n>").strip().lower()
 
 
     """

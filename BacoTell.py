@@ -22,8 +22,8 @@ Taco_selection = [
 Prints the taco menu and allows users to add tacos to the cart (MAKE)
 '''
 def taco_menu():
-    for taco in Taco_selection:
-        print(f'{taco[0]} - ${taco[1]}')
+    for (i,taco) in enumerate(Taco_selection, start = 1):
+        print(f'{i}. {taco[0]} - ${taco[1]}')
 
 
 def menu():

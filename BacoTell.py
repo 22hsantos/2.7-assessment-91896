@@ -75,7 +75,7 @@ def user_selection(menu):
     print('Enter the number of the item you would like to select\n'
     'to go back, enter 0')
     menu_item = int_input_check(" select one\n>")
-
+    menu_item = menu_item - 1
 
     """
     if user_selection is more or equal to 1 AND less or equal to the max,

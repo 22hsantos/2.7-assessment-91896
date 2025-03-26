@@ -74,8 +74,8 @@ modified.
 def user_selection(menu):
     print('Enter the number of the item you would like to select\n'
     'to go back, enter 0')
-    menu_item = int_input_check(" select one\n>")
-    menu_item = menu_item - 1
+    menu_item = int_input_check(" select one\n>") #sends through input check fn then returns
+    menu_item = menu_item - 1 # -1 to input
 
     """
     if user_selection is more or equal to 1 AND less or equal to the max,
@@ -83,11 +83,11 @@ def user_selection(menu):
     """
 
     while True:
-        if 1 <= menu_item <= len(menu): # checks if number is in range with the list
+        if 0 <= menu_item <= len(menu): # checks if number is in range with the list
             break
 
-        if menu_item == 0:
-            menu()
+        if menu_item == -1:
+            return_menu()
         else:
             print('Please enter a number in range with available items.')
 

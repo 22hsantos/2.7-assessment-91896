@@ -73,8 +73,8 @@ modified.
 """
 def user_selection(menu):
     print('Enter the number of the item you would like to select\n'
-    'to go back, enter B')
-    menu_item = int_input_check(" select one\n>").strip().lower()
+    'to go back, enter 0')
+    menu_item = int_input_check(" select one\n>")
 
 
     """
@@ -85,6 +85,9 @@ def user_selection(menu):
     while True:
         if 1 <= menu_item <= len(menu): # checks if number is in range with the list
             break
+
+        if menu_item == 0:
+            menu()
         else:
             print('Please enter a number in range with available items.')
 

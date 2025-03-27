@@ -84,7 +84,7 @@ def user_selection(menu): # inputs the current menu and then runs fn
     """
     while True:
         if 0 <= menu_item <= len(menu): # checks if number is in range with the list
-            customise_item(menu_item) # customises specific menu item
+            customise_item(menu,menu_item) # customises specific menu item
 
         if menu_item == -1:
             return_menu()
@@ -97,23 +97,36 @@ def user_selection(menu): # inputs the current menu and then runs fn
 """
 Allows for the chosen food item to be customised e.g vegan, gluten free.
 """
-def customise_item(menu_item):
-    print(menu_item)
+def customise_item(menu, menu_item):
+    print(menu[menu_item])
     print(''
     '1. Gluten free option\n'
-    '2. Vegan option\n')
+    '2. Vegan option\n'
+    '3. Go Back')
 
     custom_item = int_input_check(">") #sends through input check fn then returns
 
     while True:
-        if custom_item == 1:
-            print(menu_item)
-        
-        if custom_item == 2:
-            print(menu_item)
-        
-        if custom_item == 3:
-            menu()
+            print(''
+        '1. Gluten free option\n'
+        '2. Vegan option\n'
+        '3. Go Back')
+            custom_item = int_input_check(">") #sends through input check fn then returns
+
+            if custom_item == 1:
+                custom_item = (menu[menu_item],'(Gluten free)')
+                print(custom_item)
+                break
+            
+            if custom_item == 2:
+                print(menu_item)
+                break
+            
+            if custom_item == 3:
+                break
+
+            else:
+                print("Please type '1' for Gluten free, '2' for vegan, or '3' to go back.")
             
 
     

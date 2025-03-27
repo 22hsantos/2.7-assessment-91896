@@ -23,18 +23,25 @@ This fn will ask the user if they would like to put the selected
 item into their basket, if yes, the item will be appended. If no,
 They will be taken back into the main menu.
 '''
-def add_to_basket(item):
-    print(f'Select {item}? (y/n)')
+def add_to_basket(basket_item):
+    print(f'Select this item? (y/n)')
     confirm_selection = input('>').strip().lower()
 
-    if confirm_selection == 'y':
-        basket.append(item)
-        print(f'Basket Updated: {basket}')#delete later
-        return_menu()
-        
-    if confirm_selection == 'n':
-        print('Item not added.')
-        return_menu()
+    while True:
+        if confirm_selection == 'y':
+            basket.append(basket_item)
+            print(f'Basket Updated: {basket}')#delete later
+            return_menu()
+            break
+            
+        if confirm_selection == 'n':
+            print('Item not added.')
+            return_menu()
+            break
+
+        else:
+            print("Please enter 'y' to add the item to the basket. To cancel, enter 'n'")
+            confirm_selection = input('>').strip().lower()
 
 #Taco list
 Taco_selection = [
@@ -84,29 +91,22 @@ def user_selection(menu): # inputs the current menu and then runs fn
     """
     while True:
         if 0 <= menu_item <= len(menu): # checks if number is in range with the list
-            customise_item(menu,menu_item) # customises specific menu item
+            basket_item = customise_item(menu,menu_item) # customises specific menu item
+            add_to_basket(basket_item)
 
         if menu_item == -1:
             return_menu()
         else:
             print('Please enter a number in range with available items.')
 
-    add_to_basket(menu[menu_item])
 
 
 """
 Allows for the chosen food item to be customised e.g vegan, gluten free.
 """
 def customise_item(menu, menu_item):
-    print(menu[menu_item])
-    print(''
-    '1. Gluten free option\n'
-    '2. Vegan option\n'
-    '3. Go Back')
-
-    custom_item = int_input_check(">") #sends through input check fn then returns
-
     while True:
+            print(menu[menu_item])
             print(''
         '1. Gluten free option\n'
         '2. Vegan option\n'
@@ -116,20 +116,19 @@ def customise_item(menu, menu_item):
             if custom_item == 1:
                 custom_item = (menu[menu_item],'(Gluten free)')
                 print(custom_item)
-                break
+                return
             
             if custom_item == 2:
-                print(menu_item)
-                break
+                custom_item = (menu[menu_item],'(Vegan)')
+                print(custom_item)
+                return
             
             if custom_item == 3:
-                break
+                menu()
 
             else:
                 print("Please type '1' for Gluten free, '2' for vegan, or '3' to go back.")
             
-
-    
 
 
 def menu():

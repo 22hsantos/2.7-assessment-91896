@@ -68,23 +68,23 @@ def taco_menu():
 """
 Allows the user to enter a number
 (ranging from the number of items in the menu list)
-and select an item to be added into the basket and/or 
-modified.
+and select an item to be added into the basket.
+
+NEED TO MAKE A CUSTOMISE FUNCTION!!!
 """
-def user_selection(menu):
+def user_selection(menu): # inputs the current menu and then runs fn
     print('Enter the number of the item you would like to select\n'
     'to go back, enter 0')
     menu_item = int_input_check(" select one\n>") #sends through input check fn then returns
     menu_item = menu_item - 1 # -1 to input
 
-    """
-    if user_selection is more or equal to 1 AND less or equal to the max,
-    print the list item corresponding to the menu input?
-    """
 
+    """
+    if user_selection is more or equal to 1 AND less or equal to the max, go to customise item
+    """
     while True:
         if 0 <= menu_item <= len(menu): # checks if number is in range with the list
-            break
+            customise_item(menu_item) # customises specific menu item
 
         if menu_item == -1:
             return_menu()
@@ -94,6 +94,27 @@ def user_selection(menu):
     add_to_basket(menu[menu_item])
 
 
+"""
+Allows for the chosen food item to be customised e.g vegan, gluten free.
+"""
+def customise_item(menu_item):
+    print(menu_item)
+    print(''
+    '1. Gluten free option\n'
+    '2. Vegan option\n')
+
+    custom_item = int_input_check(">") #sends through input check fn then returns
+
+    while True:
+        if custom_item == 1:
+            print(menu_item)
+        
+        if custom_item == 2:
+            print(menu_item)
+        
+        if custom_item == 3:
+            menu()
+            
 
     
 

@@ -129,7 +129,7 @@ def customise_item(menu, menu_item):
                 return basket_item
             
             if custom_item == 3:
-                menu()
+                return_menu()
 
             else:
                 print("Please type '1' for Gluten free, '2' for vegan, or '3' to go back.")

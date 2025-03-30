@@ -76,8 +76,6 @@ def taco_menu():
 Allows the user to enter a number
 (ranging from the number of items in the menu list)
 and select an item to be added into the basket.
-
-NEED TO MAKE A CUSTOMISE FUNCTION!!!
 """
 def user_selection(menu): # inputs the current menu and then runs fn
     print('Enter the number of the item you would like to select\n'
@@ -145,6 +143,7 @@ def menu():
         print('3. Snacks & Sides')
         print('4. Desserts')
         print('5. Drinks')
+        print('6. View basket')
         menu_input = input('>')
 
         if menu_input == '1':
@@ -166,6 +165,9 @@ def menu():
         if menu_input == '5':
             drink_menu()
             break
+        
+        if menu_input == '6':
+            view_basket()
 
         else:
             print('Please enter only numbers 1-5.')

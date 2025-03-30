@@ -18,12 +18,14 @@ def return_menu():
     menu()
 
 
-'''
-This fn will ask the user if they would like to put the selected
-item into their basket, if yes, the item will be appended. If no,
-They will be taken back into the main menu.
-'''
+
 def add_to_basket(basket_item):
+    '''
+    This fn will ask the user if they would like to put the selected
+    item into their basket, if yes, the item will be appended. If no,
+    They will be taken back into the main menu.
+    '''
+    
     print(f'Select this item? (y/n)')
     confirm_selection = input('>').strip().lower()
 
@@ -49,8 +51,18 @@ Allows the user to view their current basket and either continue shopping, or ch
 '''
 def view_basket():
     for item in basket:
-        print(f'{item[0]}: {item[1]:.2f}')
+        print(f'{item[0]}: ${item[1]:.2f}')
     
+    print(""
+    "Type '1' to continue shopping"
+    "Type '2' to checkout")
+    
+    user_input = int_input_check('>')
+
+    if user_input == 1:
+        return_menu()
+    if user_input == 2:
+        checkout()
     return_menu()
 
 #Taco list

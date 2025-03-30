@@ -5,6 +5,12 @@ bare minimum :(
 
 basket = []
 
+
+def return_menu():
+    input('Press any key to return to the main menu.')
+    menu()
+
+
 #Taco list
 Taco_selection = [
     ['Double Taco Supreme', 9.50],
@@ -28,8 +34,9 @@ def user_selection(menu): # taco tingz
 
             if 0 <= menu_item <= len(menu): # checks if number is in range with the list
                 basket_item = (menu[menu_item]) # customises specific menu item, returns item
+                basket_item[0] = basket_item[0] + ' NEW NE EW'
                 print(basket_item)#prints new item
-                menu()
+                return_menu()
 
             if menu_item == -1:
                 return_menu()

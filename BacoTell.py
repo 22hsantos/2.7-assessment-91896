@@ -43,9 +43,18 @@ def add_to_basket(basket_item):
             print("Please enter 'y' to add the item to the basket. To cancel, enter 'n'")
             confirm_selection = input('>').strip().lower()
 
+
+'''
+Allows the user to view their current basket and either continue shopping, or checkout.
+'''
+def view_basket():
+    for item in basket:
+        print(item[0])
+    input('AH')
+
 #Taco list
 Taco_selection = [
-    ['Double Taco Supreme',9.50],
+    ['Double Taco Supreme', 9.50],
     ['Double Crispy Chicken Taco',10.50]
     ]
 
@@ -119,7 +128,7 @@ def customise_item(menu, menu_item):
             custom_item = int_input_check(">") #sends through input check fn then returns
 
             if custom_item == 1:
-                basket_item = (menu[menu_item],'(Gluten free)')
+                basket_item = ([menu[menu_item],'(Gluten free)'])
                 return basket_item
             
             if custom_item == 2:

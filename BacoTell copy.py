@@ -49,8 +49,9 @@ Allows the user to view their current basket and either continue shopping, or ch
 '''
 def view_basket():
     for item in basket:
-        print(item[0])
-    input('AH')
+        print(f'{item[0]}: {item[1]:.2f}')
+    
+    return_menu()
 
 #Taco list
 Taco_selection = [
@@ -128,11 +129,12 @@ def customise_item(menu, menu_item):
             custom_item = int_input_check(">") #sends through input check fn then returns
 
             if custom_item == 1:
-                basket_item = ([menu[menu_item],'(Gluten free)'])
+                basket_item = (menu[menu_item])
+                basket_item[0] = basket_item[0] + ' (gluten free)'
                 return basket_item
             
             if custom_item == 2:
-                basket_item = (menu[menu_item],'(Vegan)')
+                basket_item[0] = basket_item[0] + ' (Vegan)'
                 return basket_item
             
             if custom_item == 3:

@@ -91,15 +91,15 @@ def user_selection(menu): # inputs the current menu and then runs fn
     """
     while True:
         if 0 <= menu_item <= len(menu): # checks if number is in range with the list
-            basket_item = customise_item(menu,menu_item) # customises specific menu item
-            print(basket_item)
-            input('huh')
+            basket_item = customise_item(menu,menu_item) # customises specific menu item, returns item
+            print(basket_item)#prints new item
             add_to_basket(basket_item)
 
-        if menu_item == -1:
-            return_menu()
-        else:
-            print('Please enter a number in range with available items.')
+            if menu_item == -1:
+                return_menu()
+
+            else:
+                print('Please enter a number in range with available items.')
 
 
 
@@ -116,14 +116,12 @@ def customise_item(menu, menu_item):
             custom_item = int_input_check(">") #sends through input check fn then returns
 
             if custom_item == 1:
-                custom_item = (menu[menu_item],'(Gluten free)')
-                print(custom_item)
-                return
+                basket_item = (menu[menu_item],'(Gluten free)')
+                return basket_item
             
             if custom_item == 2:
-                custom_item = (menu[menu_item],'(Vegan)')
-                print(custom_item)
-                return
+                basket_item = (menu[menu_item],'(Vegan)')
+                return basket_item
             
             if custom_item == 3:
                 menu()

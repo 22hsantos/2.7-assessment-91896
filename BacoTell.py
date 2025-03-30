@@ -95,11 +95,16 @@ def user_selection(menu): # inputs the current menu and then runs fn
             print(basket_item)#prints new item
             add_to_basket(basket_item)
 
-            if menu_item == -1:
-                return_menu()
+        if menu_item == -1:
+            return_menu()
 
-            else:
-                print('Please enter a number in range with available items.')
+        else:
+            print('Please enter a number in range with available items.')
+            print(menu)
+            print('Enter the number of the item you would like to select\n'
+            'to go back, enter 0')
+            menu_item = int_input_check(" select one\n>") #sends through input check fn then returns
+
 
 
 

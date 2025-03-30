@@ -92,6 +92,8 @@ def user_selection(menu): # inputs the current menu and then runs fn
     while True:
         if 0 <= menu_item <= len(menu): # checks if number is in range with the list
             basket_item = customise_item(menu,menu_item) # customises specific menu item
+            print(basket_item)
+            input('huh')
             add_to_basket(basket_item)
 
         if menu_item == -1:

@@ -54,7 +54,7 @@ def view_basket():
         print(f'{item[0]}: ${item[1]:.2f}')
     
     print(""
-    "Type '1' to continue shopping"
+    "Type '1' to continue shopping\n"
     "Type '2' to checkout")
     
     user_input = int_input_check('>')
@@ -72,9 +72,25 @@ def checkout():
     total = 0
     for item in basket:
         total += item[1]
-    print(f'Total: {total:.2f}')
-    return_menu()
+    print(f'Total: ${total:.2f}')
 
+    while True:
+        print(""
+        "'1' to Delivery options\n"
+        "'2' to continue shopping.")
+        user_input = int_input_check('>')
+        
+        if user_input == 1:
+            delivery_page()
+
+        if user_input == 2:
+            return_menu()
+
+        else:
+            print("Please enter only '1' or '2'.")
+
+
+#delivery_page
 
 #Taco list
 Taco_selection = [
@@ -148,7 +164,7 @@ def customise_item(menu, menu_item):
             print(''
         '1. Gluten free option\n'
         '2. Vegan option\n'
-        '3. No changes'
+        '3. No changes\n'
         '4. Go Back')
             custom_item = int_input_check(">") #sends through input check fn then returns
 

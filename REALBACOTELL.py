@@ -65,6 +65,17 @@ def view_basket():
         checkout()
     return_menu()
 
+
+#checkout fn
+def checkout():
+
+    total = 0
+    for item in basket:
+        total += item[1]
+    print(total)
+    input('A')
+
+    
 #Taco list
 Taco_selection = [
     ['Double Taco Supreme', 9.50],

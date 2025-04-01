@@ -72,10 +72,10 @@ def checkout():
     total = 0
     for item in basket:
         total += item[1]
-    print(total)
-    input('A')
+    print(f'Total: {total:.2f}')
+    return_menu()
 
-    
+
 #Taco list
 Taco_selection = [
     ['Double Taco Supreme', 9.50],
@@ -148,11 +148,13 @@ def customise_item(menu, menu_item):
             print(''
         '1. Gluten free option\n'
         '2. Vegan option\n'
-        '3. Go Back')
+        '3. No changes'
+        '4. Go Back')
             custom_item = int_input_check(">") #sends through input check fn then returns
 
+            basket_item = (menu[menu_item])
+
             if custom_item == 1:
-                basket_item = (menu[menu_item])
                 basket_item[0] = basket_item[0] + ' (gluten free)'
                 return basket_item
             
@@ -161,7 +163,10 @@ def customise_item(menu, menu_item):
                 return basket_item
             
             if custom_item == 3:
-                return_menu()
+                return basket_item
+
+            if custom_item == 4:
+                return_menu
 
             else:
                 print("Please type '1' for Gluten free, '2' for vegan, or '3' to go back.")

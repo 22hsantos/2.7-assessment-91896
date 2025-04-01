@@ -46,10 +46,10 @@ def add_to_basket(basket_item):
             confirm_selection = input('>').strip().lower()
 
 
-'''
-Allows the user to view their current basket and either continue shopping, or checkout.
-'''
 def view_basket():
+    '''
+    Allows the user to view their current basket and either continue shopping, or checkout.
+    '''
     for item in basket:
         print(f'{item[0]}: ${item[1]:.2f}')
     
@@ -71,11 +71,11 @@ Taco_selection = [
     ['Double Crispy Chicken Taco',10.50]
     ]
 
-'''
-Takes user input and checks if it is an integer
-'''
-def int_input_check(n):
 
+def int_input_check(n):
+    '''
+    Takes user input and checks if it is an integer
+    '''
     while True:
         try:
             num = int(input(n))#checks if input is integer
@@ -85,21 +85,23 @@ def int_input_check(n):
             print('Please enter only valid numbers')
 
 
-'''
-Prints the taco menu
-'''
 def taco_menu():
+    '''
+    Prints the taco menu
+    '''
     for (i,taco) in enumerate(Taco_selection, start = 1): #allows index to be printed, starts at 1 instead of 0
         print(f'{i}. {taco[0]} - ${taco[1]}') # (Index). (Item) - $(Price)
     user_selection(Taco_selection)
 
 
-"""
-Allows the user to enter a number
-(ranging from the number of items in the menu list)
-and select an item to be added into the basket.
-"""
 def user_selection(menu): # inputs the current menu and then runs fn
+
+    """
+    Allows the user to enter a number
+    (ranging from the number of items in the menu list)
+    and select an item to be added into the basket.
+    """
+
     print('Enter the number of the item you would like to select\n'
     'to go back, enter 0')
     menu_item = int_input_check(" select one\n>") #sends through input check fn then returns
@@ -126,12 +128,10 @@ def user_selection(menu): # inputs the current menu and then runs fn
             menu_item = int_input_check(" select one\n>") #sends through input check fn then returns
 
 
-
-
-"""
-Allows for the chosen food item to be customised e.g vegan, gluten free.
-"""
 def customise_item(menu, menu_item):
+    """
+    Allows for the chosen food item to be customised e.g vegan, gluten free.
+    """
     while True:
             print(menu[menu_item])
             print(''

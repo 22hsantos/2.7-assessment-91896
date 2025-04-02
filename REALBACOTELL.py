@@ -51,8 +51,13 @@ def view_basket():
     '''
     Allows the user to view their current basket and either continue shopping, or checkout.
     '''
+    total = 0
+
     for item in basket:
+        total += item[1]
         print(f'{item[0]}: ${item[1]:.2f}')
+    
+    print(f'Total: {total}')
     
     print(""
     "Type '1' to continue shopping\n"
@@ -71,6 +76,7 @@ def view_basket():
 def checkout():
 
     total = 0
+    
     for item in basket:
         total += item[1]
     print(f'Total: ${total:.2f}')
@@ -193,7 +199,7 @@ def user_selection(menu): # inputs the current menu and then runs fn
             print('Enter the number of the item you would like to select\n'
             'to go back, enter 0')
             menu_item = int_input_check(" select one\n>") #sends through input check fn then returns
-
+            menu_item = menu_item - 1 # -1 to input
 
 def customise_item(menu, menu_item):
     """
@@ -222,7 +228,7 @@ def customise_item(menu, menu_item):
                 return basket_item
 
             if custom_item == 4:
-                return_menu
+                return_menu()
 
             else:
                 print("Please type '1' for Gluten free, '2' for vegan, or '3' to go back.")
@@ -268,7 +274,7 @@ def menu():
             print('Please enter only numbers 1-5.')
 
 def baco_tell_location():
-    
+
     while True:
         print('Please select your Baco Tell location')
         print(""

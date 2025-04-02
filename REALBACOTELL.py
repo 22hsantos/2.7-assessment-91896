@@ -13,6 +13,7 @@ customise delivery options.
 #user's basket
 basket = []
 
+
 def return_menu():
     input('Press any key to return to the main menu.')
     menu()
@@ -91,6 +92,45 @@ def checkout():
 
 
 #delivery_page
+def delivery_page():
+    " Asks the user if they want to pickup or get the food delivered."
+
+    print(""
+    "'1' for pickup\n"
+    "'2' for delivery\n"
+    "Please type number of the option you choose.\n")
+    user_input = int_input_check('>')
+
+    if user_input == 1:
+        pickup_time()
+
+    if user_input == 2:
+        address_page()
+
+
+def pickup_time():
+    print('Due to increase of demand, we have had to allocate four timeslots to pickup food.')
+    print(""
+    "1. 10:00 am\n"
+    "2. 12:00 pm\n"
+    "3. 3:00 pm\n"
+    "4. 6:00 pm\n"
+    "0. Go back"
+    "")
+
+    user_input = int_input_check('>')
+
+    while True:
+        if 0 < user_input <= 4:
+            payment_page()
+        
+        if user_input == 0:
+            return_menu()
+        
+        else:
+            print(''
+            'Please input the number of the timeslot you would like to select.\n'
+            'To go back, type 0')
 
 #Taco list
 Taco_selection = [
@@ -227,7 +267,21 @@ def menu():
         else:
             print('Please enter only numbers 1-5.')
 
+def baco_tell_location():
+    print('Please select your Baco Tell location')
+    print(""
+    "1. Queenstown\n"
+    "2. Dunedin\n"
+    "3. Invercargill\n"
+    "")
 
+    user_input = int_input_check('>')
+
+    if 0 < user_input <= 3:
+        menu()
+
+    else:
+        print('please select a number in range')
 
 
 menu()

@@ -13,6 +13,20 @@ customise delivery options.
 #user's basket
 basket = []
 
+personal_information = []
+
+card_information = [
+    ['card number',16],
+    ['expiry date (MMYY)', 4],
+    ['CVV', 3],
+    ['Cardholder name',20]
+    ]
+
+#Taco list
+Taco_selection = [
+    ['Double Taco Supreme', 9.50],
+    ['Double Crispy Chicken Taco',10.50]
+    ]
 
 def return_menu():
     input('Press any key to return to the main menu.')
@@ -76,7 +90,7 @@ def view_basket():
 def checkout():
 
     total = 0
-    
+
     for item in basket:
         total += item[1]
     print(f'Total: ${total:.2f}')
@@ -138,11 +152,18 @@ def pickup_time():
             'Please input the number of the timeslot you would like to select.\n'
             'To go back, type 0')
 
-#Taco list
-Taco_selection = [
-    ['Double Taco Supreme', 9.50],
-    ['Double Crispy Chicken Taco',10.50]
-    ]
+def payment_page():
+   
+   for item in card_information:
+       print(f'Please enter your {item[0]}!!!')
+       user_input = int_input_check('>')
+
+       while len(user_input) != item[1]:
+            print(f"Input doesn't meet character requirement!\n Must be {item[0]} characters long")
+            print(f'Please enter your {item[0]}!!!')
+            user_input = int_input_check('>')
+
+return_menu()
 
 
 def int_input_check(n):
@@ -290,6 +311,7 @@ def baco_tell_location():
 
         else:
             print('please select a number in range')
+
 
 
 baco_tell_location()

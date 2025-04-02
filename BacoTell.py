@@ -60,7 +60,3 @@ def menu():
         else:
             print('Please enter only numbers 1 or 6 .')
 
-
-
-
-menu()

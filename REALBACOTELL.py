@@ -268,20 +268,22 @@ def menu():
             print('Please enter only numbers 1-5.')
 
 def baco_tell_location():
-    print('Please select your Baco Tell location')
-    print(""
-    "1. Queenstown\n"
-    "2. Dunedin\n"
-    "3. Invercargill\n"
-    "")
+    
+    while True:
+        print('Please select your Baco Tell location')
+        print(""
+        "1. Queenstown\n"
+        "2. Dunedin\n"
+        "3. Invercargill\n"
+        "")
 
-    user_input = int_input_check('>')
+        user_input = int_input_check('>')
 
-    if 0 < user_input <= 3:
-        menu()
+        if 0 < user_input <= 3:
+            menu()
 
-    else:
-        print('please select a number in range')
+        else:
+            print('please select a number in range')
 
 
-menu()
+baco_tell_location()

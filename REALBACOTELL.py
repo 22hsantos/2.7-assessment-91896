@@ -156,15 +156,12 @@ def payment_page():
    
    for item in card_information:
        print(f'Please enter your {item[0]}!!!')
-       user_input = int_input_check('>')
+       user_input = (input('>'))
 
        while len(user_input) != item[1]:
-            print(f"Input doesn't meet character requirement!\n Must be {item[0]} characters long")
+            print(f"Input doesn't meet character requirement!\n Must be {item[1]} characters long")
             print(f'Please enter your {item[0]}!!!')
-            user_input = int_input_check('>')
-
-return_menu()
-
+            user_input = (input('>'))
 
 def int_input_check(n):
     '''
@@ -311,7 +308,6 @@ def baco_tell_location():
 
         else:
             print('please select a number in range')
-
 
 
 baco_tell_location()

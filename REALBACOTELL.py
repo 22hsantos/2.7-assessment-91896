@@ -171,15 +171,15 @@ def payment_page():
                print('Cardholder name must be less that 20 characters!')
                user_input = input('>')
 
-
        print(f'Please enter your {item[0]}!!!')
        user_input = (input('>'))
-       item[0] = user_input
+       personal_information.append(user_input)
 
        while len(user_input) != item[1]:
             print(f"Input doesn't meet character requirement!\n Must be {item[1]} characters long")
             print(f'Please enter your {item[0]}!!!')
             user_input = (input('>'))
+
 
 def int_input_check(n):
     '''

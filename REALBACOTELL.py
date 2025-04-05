@@ -159,7 +159,7 @@ def payment_page():
    
    for index, item in enumerate(card_information):
        
-       if index == 3:
+       if index == 3:# for cardholder name input
            print('Please enter the cardholder name')
            user_input = input('>')
 
@@ -173,13 +173,12 @@ def payment_page():
 
        print(f'Please enter your {item[0]}!!!')
        user_input = (input('>'))
-       personal_information.append(user_input)
+       personal_information.append(user_input)#adds user input into personal info list
 
-       while len(user_input) != item[1]:
+       while len(user_input) != item[1]: #checks if user input exceeds the char limit
             print(f"Input doesn't meet character requirement!\n Must be {item[1]} characters long")
             print(f'Please enter your {item[0]}!!!')
             user_input = (input('>'))
-
 
 def int_input_check(n):
     '''

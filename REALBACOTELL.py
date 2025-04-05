@@ -83,7 +83,10 @@ def view_basket():
         return_menu()
     if user_input == 2:
         checkout()
-    return_menu()
+    
+    while user_input != 1 or user_input != 2:
+        print('Please 1 or 2')
+        user_input = ('>')
 
 
 #checkout fn
@@ -154,9 +157,24 @@ def pickup_time():
 
 def payment_page():
    
-   for item in card_information:
+   for index, item in enumerate(card_information):
+       
+       if index == 3:
+           print('Please enter the cardholder name')
+           user_input = input('>')
+
+           if len(user_input) <= 20:
+               personal_information.append(user_input)
+               print(personal_information)
+
+           while len(user_input) > 20:
+               print('Cardholder name must be less that 20 characters!')
+               user_input = input('>')
+
+
        print(f'Please enter your {item[0]}!!!')
        user_input = (input('>'))
+       item[0] = user_input
 
        while len(user_input) != item[1]:
             print(f"Input doesn't meet character requirement!\n Must be {item[1]} characters long")

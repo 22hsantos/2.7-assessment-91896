@@ -172,7 +172,9 @@ def payment_page():
                user_input = input('>')
 
        print(f'Please enter your {item[0]}!!!')
-       user_input = (input('>'))
+       user_input = int_input_check(input('>'))
+
+       user_input = str(user_input)
        
        if len(user_input) == item[1]:
            personal_information.append(user_input)

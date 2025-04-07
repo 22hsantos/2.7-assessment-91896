@@ -60,6 +60,19 @@ def menu():
         else:
             print('Please enter only numbers 1 or 6 .')
 
-i = input('hi')
 
-print(len(i))
+colours = ['red', 'blue', 'yellow']
+
+list = []
+
+for index, colour in enumerate(colours, 1):
+
+    if index == 1:
+        print(index)
+        print('hihi')
+        user_input = input('>')
+        list.append(user_input)
+
+    else:
+        user_input = ('hi')
+        list.append(user_input)

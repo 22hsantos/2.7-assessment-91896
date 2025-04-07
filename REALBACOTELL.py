@@ -23,10 +23,16 @@ card_information = [
     ]
 
 #Taco list
-Taco_selection = [
+Taco_menu = [
     ['Double Taco Supreme', 9.50],
     ['Double Crispy Chicken Taco',10.50]
     ]
+
+burrito_menu = [
+    ['Chipotle Crunch Burrito', 8.00]
+    ['Nacho Fries Burrito', 6.50]
+]
+
 
 def return_menu():
     input('Press any key to return to the main menu.')
@@ -176,6 +182,7 @@ def pickup_time():
 
 def payment_page():
    
+   "Loops through items in the card info list and stores user input into personal info list"
    for index, item in enumerate(card_information):
        
        if index == 3:# for cardholder name input
@@ -185,6 +192,7 @@ def payment_page():
            if len(user_input) <= 20:
                personal_information.append(user_input)
                print(personal_information)
+               print('Thanks for your info :)')
                print('Thank you for ordering!')
                return_menu()
 
@@ -224,12 +232,9 @@ def int_input_check(n):
             print('Please enter only valid numbers')
 
 
-def taco_menu():
-    '''
-    Prints the taco menu
-    '''
-    for (i,taco) in enumerate(Taco_selection, start = 1): #allows index to be printed, starts at 1 instead of 0
-        print(f'{i}. {taco[0]} - ${taco[1]}') # (Index). (Item) - $(Price)
+def display_menu(menu):
+    for (index,item) in enumerate(menu, start = 1): #allows index to be printed, starts at 1 instead of 0
+        print(f'{index}. {item[0]} - ${item[1]}') # (Index). (Item) - $(Price)
     user_selection(Taco_selection)
 
 

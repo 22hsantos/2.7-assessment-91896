@@ -29,11 +29,24 @@ Taco_menu = [
     ]
 
 burrito_menu = [
-    ['Chipotle Crunch Burrito', 8.00]
+    ['Chipotle Crunch Burrito', 8.00],
     ['Nacho Fries Burrito', 6.50]
-]
+    ]
 
+sides_menu = [
+    ['Jalapeno Bites', 4.00],
+    ['Mini Chicken Quesadilla', 6.00]
+    ]
 
+dessert_menu = [
+    ['Chocodilla', 4.00],
+    ['Cinnamon twists', 5.50]
+    ]
+
+drinks_menu = [
+    ['Coke', 4.00],
+    ['Yum Yum Juice!', 200.00]
+    ] 
 def return_menu():
     input('Press any key to return to the main menu.')
     menu()
@@ -77,7 +90,7 @@ def view_basket():
         total += item[1]
         print(f'{item[0]}: ${item[1]:.2f}')
     
-    print(f'Total: {total}')
+    print(f'Total: {total:.2f}')
     
     print(""
     "Type '1' to continue shopping\n"
@@ -235,7 +248,7 @@ def int_input_check(n):
 def display_menu(menu):
     for (index,item) in enumerate(menu, start = 1): #allows index to be printed, starts at 1 instead of 0
         print(f'{index}. {item[0]} - ${item[1]}') # (Index). (Item) - $(Price)
-    user_selection(Taco_selection)
+    user_selection(menu)
 
 
 def user_selection(menu): # inputs the current menu and then runs fn
@@ -256,7 +269,7 @@ def user_selection(menu): # inputs the current menu and then runs fn
     if user_selection is more or equal to 1 AND less or equal to the max, go to customise item
     """
     while True:
-        if 0 <= menu_item <= len(menu): # checks if number is in range with the list
+        if 0 <= menu_item < 2: # checks if number is in range with the list
             basket_item = customise_item(menu,menu_item) # customises specific menu item, returns item
             print(basket_item)#prints new item
             add_to_basket(basket_item)
@@ -305,7 +318,6 @@ def customise_item(menu, menu_item):
                 print("Please type '1' for Gluten free, '2' for vegan, or '3' to go back.")
             
 
-
 def menu():
     while True:
         print('Welcome to Baco Tell')
@@ -319,23 +331,23 @@ def menu():
         menu_input = input('>')
 
         if menu_input == '1':
-            taco_menu()
+            display_menu(Taco_menu)
             break
 
         if menu_input == '2':
-            burrito_menu()
+            display_menu(burrito_menu)
             break
 
         if menu_input == '3':
-            snack_side_menu()
+            display_menu(sides_menu)
             break
 
         if menu_input == '4':
-            dessert_menu()
+            display_menu(dessert_menu)
             break
 
         if menu_input == '5':
-            drink_menu()
+            display_menu(drinks_menu)
             break
         
         if menu_input == '6':

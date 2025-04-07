@@ -121,15 +121,34 @@ def delivery_page():
     print(""
     "'1' for pickup\n"
     "'2' for delivery\n"
-    "Please type number of the option you choose.\n")
+    )
     user_input = int_input_check('>')
 
     if user_input == 1:
         pickup_time()
 
     if user_input == 2:
-        address_page()
 
+        print('' \
+        'Sorry! Due to ongoing maintenance, delivery is not available right now.' \
+        '')
+
+        print("" \
+        "'1' Pickup\n" \
+        "'2' Go back")
+
+        user_input = int_input_check('>')
+
+        if user_input == 1:
+            pickup_time()
+        
+        if user_input == 2:
+            return_menu()
+        
+        else:
+            while True:
+                print('Please enter a number in range.')
+                user_input = int_input_check('>')
 
 def pickup_time():
     print('Due to increase of demand, we have had to allocate four timeslots to pickup food.')
@@ -166,24 +185,31 @@ def payment_page():
            if len(user_input) <= 20:
                personal_information.append(user_input)
                print(personal_information)
+               print('Thank you for ordering!')
+               return_menu()
 
            while len(user_input) > 20:
                print('Cardholder name must be less that 20 characters!')
                user_input = input('>')
        else:
-            print(f'Please enter your {item[0]}!!!')
-            user_input = int_input_check(input('>'))
-
-            user_input = str(user_input)
             
-            if len(user_input) == item[1]:
-                personal_information.append(user_input)
-                print(personal_information)
+            while True:
+                print(f'Please enter your {item[0]}!!!')
+                user_input = int_input_check('>')
+
+                user_input = str(user_input)
                 
-            while len(user_input) != item[1]: #checks if user input exceeds the char limit
+                if len(user_input) == item[1]:
+                    print('yay')
+                    personal_information.append(user_input)
+                    print(personal_information)
+                    break
+                    
+                if len(user_input) != item[1]: #checks if user input exceeds the char limit
                     print(f"Input doesn't meet character requirement!\n Must be {item[1]} characters long")
                     print(f'Please enter your {item[0]}!!!')
-                    user_input = (input('>'))
+                    user_input = str(int_input_check('>'))
+
 
 def int_input_check(n):
     '''

@@ -13,6 +13,8 @@ customise delivery options.
 #user's basket
 basket = []
 
+
+#where  credit car info
 personal_information = []
 
 card_information = [
@@ -22,11 +24,12 @@ card_information = [
     ['Cardholder name',20]
     ]
 
-#Taco list
+#lists of items
 Taco_menu = [
     ['Double Taco Supreme', 9.50],
     ['Double Crispy Chicken Taco',10.50]
     ]
+
 
 burrito_menu = [
     ['Chipotle Crunch Burrito', 8.00],
@@ -48,6 +51,10 @@ drinks_menu = [
     ['Yum Yum Juice!', 200.00]
     ] 
 def return_menu():
+
+    """
+    returns user to menu.
+    """
     input('Press any key to return to the main menu.')
     menu()
 
@@ -111,6 +118,8 @@ def view_basket():
 #checkout fn
 def checkout():
 
+    """ Calculates the total, then run delivery fn."""
+
     total = 0
 
     for item in basket:
@@ -170,6 +179,8 @@ def delivery_page():
                 user_input = int_input_check('>')
 
 def pickup_time():
+
+    """ allow the user to choose their pickup time"""
     print('Due to increase of demand, we have had to allocate four timeslots to pickup food.')
     print(""
     "1. 10:00 am\n"
@@ -246,6 +257,9 @@ def int_input_check(n):
 
 
 def display_menu(menu):
+    
+    """Prints all menu item in menu list"""
+
     for (index,item) in enumerate(menu, start = 1): #allows index to be printed, starts at 1 instead of 0
         print(f'{index}. {item[0]} - ${item[1]}') # (Index). (Item) - $(Price)
     user_selection(menu)
@@ -319,6 +333,10 @@ def customise_item(menu, menu_item):
             
 
 def menu():
+    
+    """Main menu"""
+
+    
     while True:
         print('Welcome to Baco Tell')
         print('How can we help you today?')

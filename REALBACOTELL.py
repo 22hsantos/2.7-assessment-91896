@@ -232,9 +232,7 @@ def payment_page():
                 user_input = str(user_input)
                 
                 if len(user_input) == item[1]:
-                    print('yay')
                     personal_information.append(user_input)
-                    print(personal_information)
                     break
                     
                 if len(user_input) != item[1]: #checks if user input exceeds the char limit
